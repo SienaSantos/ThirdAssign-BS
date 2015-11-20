@@ -5,10 +5,27 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+  </script>
   <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 
-<body class ="container">
+<body id ="container">
   <div class="header">
     <div class="social-media">
       <ul>
@@ -25,7 +42,7 @@
     </div>
 
     <div class="toTop">
-      <a class = "toTopbtn" href="#Content"><img src="images/toTop.png" alt="totop" /></span></a>
+      <a class = "toTopbtn" href="#container"><img src="images/toTop.png" alt="totop" /></span></a>
     </div>
   </div>
   <div class="Content">
